@@ -19,30 +19,18 @@ figure,imagesc(imgGray),colormap gray, title('Original image')
 tx = 100.4;
 ty = 70.6;
 
-[X, Y] = meshgrid(1 : cc, 1 : rr);
-%Inverse of the transformation
-Xn = X - tx;
-Yn = Y - ty;
+imgTranslated = translate(imgGray, tx, ty);
 
-figure,imagesc(griddata(X,Y,double(imgGray),Xn,Yn,'linear')),colormap gray, title('Backward translation')
+figure,imagesc(imgTranslated),colormap gray, title('Backward translation')
 
 %% Rotation
 
-%Indeces of the centre of the image
-midX = (cc + 1) / 2;
-midY = (rr + 1) / 2;
 %Angle for the rotation
 theta = 3 * pi / 4;
 
-[X, Y] = meshgrid(1 : cc, 1 : rr);
-%Inverse of the transformation
-Xc = (X - midX) * cos(theta) + (Y - midY) * sin(theta);
-Yc = -(X - midX) * sin(theta) + (Y - midY) * cos(theta);
-%Re-center the image 
-Xn = Xc + midX;
-Yn = Yc + midY;
+imgRotated = rotate(imgGray, theta);
 
-figure,imagesc(griddata(X,Y,double(imgGray),Xn,Yn,'linear')),colormap gray, title('Backward rotation')
+figure,imagesc(imgRotated),colormap gray, title('Backward rotation')
 
 %% Colored rotation
 
@@ -65,21 +53,15 @@ figure,imagesc(griddata(X,Y,double(imgGray),Xn,Yn,'linear')),colormap gray, titl
 %Shearing coefficient
 sv = 0.7;
 
-[X, Y] = meshgrid(1 : cc, 1 : rr);
-%Inverse of the transformation
-Xn = X - sv * Y;
-Yn = Y;
+imgVertSheared = vertShear(imgGray, sv);
 
-figure,imagesc(griddata(X,Y,double(imgGray),Xn,Yn,'linear')),colormap gray, title('Shear (vertical)')
+figure,imagesc(imgVertSheared),colormap gray, title('Shear (vertical)')
 
 %% Shear (horizontal)
 
 %Shearing coefficient
 sh = 0.7;
 
-[X, Y] = meshgrid(1 : cc, 1 : rr);
-%Inverse of the transformation
-Xn = X;
-Yn = Y - sh * X;
+imgHorizSheared = horizShear(imgGray, sh);
 
-figure,imagesc(griddata(X,Y,double(imgGray),Xn,Yn,'linear')),colormap gray, title('Shear (horizontal)')
+figure,imagesc(imgHorizSheared),colormap gray, title('Shear (horizontal)')

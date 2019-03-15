@@ -1,2 +1,2 @@
 # computer-vision
-Useless repository for our exercises
+Very useful repository for our exercises

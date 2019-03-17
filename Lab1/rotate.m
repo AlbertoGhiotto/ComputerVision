@@ -3,7 +3,7 @@ function imgRotated = rotate(imgGray, theta)
 %Dimensions of the image
 [rr,cc]=size(imgGray);
 
-%Indeces of the centre of the image
+%Indexes of the centre of the image
 midX = (cc + 1) / 2;
 midY = (rr + 1) / 2;
 

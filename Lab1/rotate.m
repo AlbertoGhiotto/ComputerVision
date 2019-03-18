@@ -1,4 +1,4 @@
-function imgRotated = rotate(imgGray, theta)
+function imgRotated = rotate(imgGray, theta, imgShow)
 
 %Dimensions of the image
 [rr,cc]=size(imgGray);
@@ -17,5 +17,9 @@ Yn = Yc + midY;
 
 %Interpolation
 imgRotated = griddata(X,Y,double(imgGray),Xn,Yn,'linear');
+
+if(imgShow)
+    figure,imagesc(imgRotated),colormap gray, title('Backward rotation')
+end
 
 end

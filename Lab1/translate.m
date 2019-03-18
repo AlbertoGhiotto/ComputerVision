@@ -1,4 +1,4 @@
-function imgTranslated = translate(imgGray, tx, ty)
+function imgTranslated = translate(imgGray, tx, ty, imgShow)
 
 %Dimensions of the image
 [rr,cc]=size(imgGray);
@@ -10,5 +10,9 @@ Yn = Y - ty;
 
 %Interpolation
 imgTranslated = griddata(X,Y,double(imgGray),Xn,Yn,'linear');
+
+if(imgShow)
+    figure,imagesc(imgTranslated),colormap gray, title('Backward translation')
+end
 
 end

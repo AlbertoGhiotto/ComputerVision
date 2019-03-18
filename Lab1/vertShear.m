@@ -1,4 +1,4 @@
-function imgVertSheared = vertShear(imgGray, sv)
+function imgVertSheared = vertShear(imgGray, sv, imgShow)
 
 %Dimensions of the image
 [rr,cc]=size(imgGray);
@@ -12,5 +12,9 @@ Xn = Xc + sv * rr / 2;
 
 %Interpolation
 imgVertSheared = griddata(X,Y,double(imgGray),Xn,Yn,'linear');
+
+if(imgShow)
+    figure,imagesc(imgVertSheared),colormap gray, title('Shear (vertical)')
+end
 
 end

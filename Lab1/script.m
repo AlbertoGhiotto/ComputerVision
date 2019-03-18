@@ -7,11 +7,13 @@ imgOriginal = imread('boccadasse.jpg', 'jpg');
 %Convert to grayscale
 imgGray = rgb2gray(imgOriginal);
 
-%Show
-figure,imagesc(imgGray),colormap gray, title('Original image')
-%Dimensions of the image
-[rr,cc]=size(imgGray);
+%Want to show the images?
+imgShow = true;
 
+%Show
+if(imgShow)
+    figure,imagesc(imgGray),colormap gray, title('Original image')
+end
 
 %% Translation
 
@@ -19,33 +21,15 @@ figure,imagesc(imgGray),colormap gray, title('Original image')
 tx = 100.4;
 ty = 70.6;
 
-imgTranslated = translate(imgGray, tx, ty);
+imgTranslated = translate(imgGray, tx, ty, imgShow);
 
-figure,imagesc(imgTranslated),colormap gray, title('Backward translation')
 
 %% Rotation
 
 %Angle for the rotation
-theta = 3 * pi / 4;
+theta = pi / 4;
 
-imgRotated = rotate(imgGray, theta);
-
-figure,imagesc(imgRotated),colormap gray, title('Backward rotation')
-
-%% Colored rotation
-
-% redChannel = imgOriginal(:, :, 1);
-% greenChannel = imgOriginal(:, :, 2);
-% blueChannel = imgOriginal(:, :, 3);
-%  
-% redInterpolated = griddata(X,Y,double(redChannel),Xn,Yn,'linear');
-% greenInterpolated = griddata(X,Y,double(greenChannel),Xn,Yn,'linear');
-% blueInterpolated = griddata(X,Y,double(blueChannel),Xn,Yn,'linear');
-% 
-% rotatedImage = cat(3, redInterpolated, greenInterpolated, blueInterpolated);
-% 
-% %figure,imagesc(blueInterpolated),colormap blue, title('Colored rotation')
-% figure,imagesc(rotatedImage),title('Colored rotation')
+imgRotated = rotate(imgGray, theta, imgShow);
 
 
 %% Shear (vertical)
@@ -53,15 +37,17 @@ figure,imagesc(imgRotated),colormap gray, title('Backward rotation')
 %Shearing coefficient
 sv = 0.7;
 
-imgVertSheared = vertShear(imgGray, sv);
+imgVertSheared = vertShear(imgGray, sv, imgShow);
 
-figure,imagesc(imgVertSheared),colormap gray, title('Shear (vertical)')
 
 %% Shear (horizontal)
 
 %Shearing coefficient
 sh = 0.7;
 
-imgHorizSheared = horizShear(imgGray, sh);
+imgHorizSheared = horizShear(imgGray, sh, imgShow);
 
-figure,imagesc(imgHorizSheared),colormap gray, title('Shear (horizontal)')
+
+%% Colored rotation
+
+imgRotatedColored = coloredRotation(imgOriginal, theta, imgShow);

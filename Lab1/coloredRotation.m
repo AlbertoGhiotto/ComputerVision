@@ -25,17 +25,15 @@ redInterpolated = griddata(X,Y,double(redChannel),Xn,Yn,'linear');
 greenInterpolated = griddata(X,Y,double(greenChannel),Xn,Yn,'linear');
 blueInterpolated = griddata(X,Y,double(blueChannel),Xn,Yn,'linear');
 
-%Recompose the three rotated channels to get the colored image rotated
-imgRotated = cat(3, redInterpolated, greenInterpolated, blueInterpolated);
-imgOrig = cat(3, redChannel, greenChannel, blueChannel);
+%Recompose the three rotated channels to get the colored image rotated (divide by 255 to show)
+imgRotated = cat(3, redInterpolated, greenInterpolated, blueInterpolated) / 255;
 
 
 if(imgShow)
-    figure,imagesc(redInterpolated),colormap autumn, title('single channel')
-    figure,imagesc(greenInterpolated),colormap summer, title('single channel')
-    figure,imagesc(blueInterpolated),colormap winter, title('single channel')
+    figure,imagesc(redInterpolated),colormap autumn, title('red channel')
+    figure,imagesc(greenInterpolated),colormap summer, title('green channel')
+    figure,imagesc(blueInterpolated),colormap winter, title('blue channel')
     figure,imagesc(imgRotated), title('Colored rotation')
-    figure,imagesc(imgOrig), title('Concatenated original')
 end
 
 end

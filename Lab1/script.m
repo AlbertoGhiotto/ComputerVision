@@ -32,7 +32,7 @@ imgTranslated = translate(imgGray, tx, ty, imgShow);
 %% Rotation
 
 %Angle for the rotation
-theta = pi;
+theta = pi/4;
 
 imgRotated = rotate(imgGray, theta, imgShow);
 

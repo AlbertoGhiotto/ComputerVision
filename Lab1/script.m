@@ -3,7 +3,8 @@ clc, clear all, close all;
 %Read the original image
 imgOriginal = imread('boccadasse.jpg', 'jpg');
 %imgOriginal = imread('flower.jpg', 'jpg');
-
+%Print Original RGB image
+figure,imagesc(imgOriginal), title('Original image')
 %Convert to grayscale
 imgGray = rgb2gray(imgOriginal);
 
@@ -12,7 +13,7 @@ imgShow = true;
 
 %Show
 if(imgShow)
-    figure,imagesc(imgGray),colormap gray, title('Original image')
+    figure,imagesc(imgGray),colormap gray, title('Grayscale image')
 end
 
 %% Translation

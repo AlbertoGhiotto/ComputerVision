@@ -25,7 +25,8 @@ redInterpolated = griddata(X,Y,double(redChannel),Xn,Yn,'linear');
 greenInterpolated = griddata(X,Y,double(greenChannel),Xn,Yn,'linear');
 blueInterpolated = griddata(X,Y,double(blueChannel),Xn,Yn,'linear');
 
-%Recompose the three rotated channels to get the colored image rotated (divide by 255 to show)
+%Recompose the three rotated channels to get the total RGB rotated 
+%The division by 255 is required by matlab to display correctly the RGB image
 imgRotated = cat(3, redInterpolated, greenInterpolated, blueInterpolated) / 255;
 
 

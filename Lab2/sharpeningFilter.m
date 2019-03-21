@@ -20,7 +20,7 @@ imgFiltered = conv2(img, K, 'same');
 if(imgShow)
     figure
     subplot(1,2,1), imagesc(img), colormap gray, title('Original')
-    subplot(1,2,2), imagesc(imgFiltered), colormap gray, title('Filtered')
+    subplot(1,2,2), imagesc(imgFiltered), colormap gray, title('Sharpened image by filtering')
 end
 
 end

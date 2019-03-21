@@ -15,7 +15,7 @@ imgFiltered = conv2(img, K, 'same');
 if(imgShow)
     figure
     subplot(1,2,1), imagesc(img), colormap gray, title('Original')
-    subplot(1,2,2), imagesc(imgFiltered), colormap gray, title('Filtered')
+    subplot(1,2,2), imagesc(imgFiltered), colormap gray, title('Same image after unitary filtering')
 end
 
 end

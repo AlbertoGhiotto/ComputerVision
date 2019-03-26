@@ -23,9 +23,9 @@ imgSPNoise = (imgSPNoise .* (~mask2)) + (maxv * mask2);
 if(imgShow)
     figure
     subplot(2,2,1), imagesc(img), colormap gray(256), title('Original image')
-    subplot(2,2,2), image(imgSPNoise), colormap gray(256), title('salt and pepper noisy image')
-    subplot(2,2,3), imhist(uint8(img),256), title('original image histogram')
-    subplot(2,2,4), imhist( uint8( imgSPNoise), 256), title('salt and pepper noisy image histogram')
+    subplot(2,2,2), image(imgSPNoise), colormap gray(256), title('Salt and pepper noisy image')
+    subplot(2,2,3), imhist(uint8(img),256), title('Original image histogram')
+    subplot(2,2,4), imhist( uint8( imgSPNoise), 256), title('Salt and pepper noisy image histogram')
 end
 
 end

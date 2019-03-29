@@ -1,21 +1,20 @@
-function imgFiltered = noChangeFilter(img, support, imgShow)
+function imgFiltered = TranslateFilter(img, support, imgShow)
 
 %Initizalize the filter
 K = zeros(support);
 [rr, cc] = size(K);
 %Central pixel coordinates
-midX = ceil(cc / 2);
 midY = ceil(rr / 2);
-%Set the the central pixel to 1
-K(midY, midX) = 1;
+%Set the the pixel in mid-height right to 1
+K(midY, cc) = 1;
 
 %Apply the filtering
 imgFiltered = conv2(img, K, 'same');
 
 if(imgShow)
-    figure
+    figure, sgtitle('Translation filter')
     subplot(1,2,1), imagesc(img), colormap gray, title('Original')
-    subplot(1,2,2), imagesc(imgFiltered), colormap gray, title('Same image after unitary filtering')
+    subplot(1,2,2), imagesc(imgFiltered), colormap gray, title('Filtered')
 end
 
 end

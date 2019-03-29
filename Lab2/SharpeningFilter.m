@@ -1,4 +1,4 @@
-function imgFiltered = sharpeningFilter(img, support, imgShow)
+function imgFiltered = SharpeningFilter(img, support, imgShow)
 
 %Initizalize the filter K1 as a filter which simply double the value of all
 %the pixel
@@ -18,9 +18,9 @@ K = K1 - K2;
 imgFiltered = conv2(img, K, 'same');
 
 if(imgShow)
-    figure
+    figure, sgtitle('Sharp filter')
     subplot(1,2,1), imagesc(img), colormap gray, title('Original')
-    subplot(1,2,2), imagesc(imgFiltered), colormap gray, title('Sharpened image by filtering')
+    subplot(1,2,2), imagesc(imgFiltered), colormap gray, title('Filtered')
 end
 
 end

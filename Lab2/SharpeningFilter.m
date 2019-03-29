@@ -18,7 +18,7 @@ K = K1 - K2;
 imgFiltered = conv2(img, K, 'same');
 
 if(imgShow)
-    figure, sgtitle('Sharp filter')
+    figure, sgtitle('Sharpening filter')
     subplot(1,2,1), imagesc(img), colormap gray, title('Original')
     subplot(1,2,2), imagesc(imgFiltered), colormap gray, title('Filtered')
 end

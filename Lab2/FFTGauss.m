@@ -1,7 +1,7 @@
 function Fimg = FFTGauss(sigma, size, imgShow)
 
 %Define a grid
-[X,Y] = meshgrid(1:101);
+[X,Y] = meshgrid(1:size);
 
 %Gaussian
 Z = exp((-X.^2 -Y.^2) / (2 * (sigma ^ 2)));

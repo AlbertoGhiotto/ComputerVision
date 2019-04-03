@@ -1,7 +1,7 @@
 imgOriginal = imread('cameraman.tif', 'tif');
 
 %Set this variable to true if you want to see the resulting images
-imgShow = false;
+imgShow = true;
 
 
 %% Part 1 - Execute the Laplacian of the Gaussian operator
@@ -28,7 +28,7 @@ edgeImg = detZeroCrossing(imgOriginal, sd, sup, threshold, imgShow);
 sd = 1.8;
 sup = 13;
 threshold = 1.9;
-comparate(imgOriginal, sd, sup, threshold, true);
+comparate(imgOriginal, sd, sup, threshold, imgShow);
 
 %% Animation  
 

@@ -37,6 +37,4 @@ if(imgShow)
     subplot(1, 2, 2), imagesc(edges), colormap gray, title(['Edges detected, threshold = ', num2str(th)])
 end
 
- 
-
 end

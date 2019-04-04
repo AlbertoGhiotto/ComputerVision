@@ -2,8 +2,12 @@ function Z = doLoG(sd, sup, imgShow)
 
 %sd is the standard deviation. It is related to the spatial support NxN: 
 %N must be an odd number at least greater than or equal to 6 sd
-if(  (sup < 6*sd)  ||  ((sup>6*sd)&&(mod(sup, 2)==0))  ) %The chosen support isn't correct
-    sup = ceil(sd*6 + 1); %New support (minimum possible support)
+if(  (sup <= 6*sd)  ||  ((sup>=6*sd)&&(mod(sup, 2)==0))  ) %The chosen support isn't correct
+    if(mod(ceil(sd*6), 2)==0) %New support (minimum possible support)
+        sup = ceil(sd*6) + 1; %must be an odd number
+    else
+        sup = ceil(sd*6);
+    end
 end
 
 [X,Y]=meshgrid(-floor(sup/2):floor(sup/2));

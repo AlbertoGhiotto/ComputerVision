@@ -25,7 +25,7 @@ support = 3;
 MAFilter(imgGaussianNoise, support, imgShow, 'gaussian');
 MAFilter(imgSPNoise, support, imgShow, 'salt and pepper');
 %Gaussian filter
-sigma = 0.5;
+sigma = support/6;      %3*sigma has to be equal or less than half width
 GaussianFilter(imgGaussianNoise, support, sigma, imgShow, 'gaussian');
 GaussianFilter(imgSPNoise, support, sigma, imgShow, 'salt and pepper');
 %Median filter

@@ -24,7 +24,7 @@ threshold = 10;
 edgeImg = detZeroCrossing(imgOriginal, sd, sup, threshold, imgShow);
 
 
-%% Part 4 - Comparate the results
+%% Part 4 - Compare the results
 sd = 1.8;
 sup = 13;
 threshold = 1.9;

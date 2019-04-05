@@ -2,6 +2,7 @@ close all;
 
 % imgOriginal = imread('cameraman.tif', 'tif');
 imgOriginal = double(imread('car.bmp', 'bmp'));
+
 %Set to true if it is desired to show the image
 doPlot = true;
 

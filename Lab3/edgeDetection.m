@@ -19,7 +19,7 @@ for i = 1 : size(imgFiltered, 1)
             end
         %If a pixel  in the filtered image has zero value then set to one
         %the corresponding pixel in the edge image
-        elseif (imgFiltered(i, j) == 0 && (imgFiltered(i, j-1) * imgFiltered(i, j+1) < 0))
+        elseif (j ~= 1 && imgFiltered(i, j) == 0 && (imgFiltered(i, j-1) * imgFiltered(i, j+1)) < 0)
             if ( (imgFiltered(i, j - 1) - imgFiltered(i, j + 1)) / 2 > threshold)
                 mask(i,j) = 1;
             end
@@ -37,7 +37,7 @@ for j = 1 : size(imgFiltered, 2)
                 mask(i,j) = 1;
                 mask(i+1,j) = 1;
             end
-        elseif (imgFiltered(i, j) == 0 && (imgFiltered(i - 1, j) * imgFiltered(i + 1, j) < 0))
+        elseif (i ~= 1 && imgFiltered(i, j) == 0 && (imgFiltered(i - 1, j) * imgFiltered(i + 1, j)) < 0)
            if ( (imgFiltered(i - 1, j) - imgFiltered(i + 1, j)) / 2 > threshold)
                 mask(i,j) = 1;
             end

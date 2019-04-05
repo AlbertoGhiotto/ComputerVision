@@ -28,7 +28,7 @@ edgeImg = detZeroCrossing(imgOriginal, sd, sup, threshold, imgShow);
 sd = 1.8;
 sup = 13;
 threshold = 1.9;
-comparate(imgOriginal, sd, sup, threshold, imgShow);
+compareAlg(imgOriginal, sd, sup, threshold, imgShow);
 
 %% Animation  
 

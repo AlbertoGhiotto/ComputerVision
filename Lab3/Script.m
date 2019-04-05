@@ -7,7 +7,7 @@ imgShow = true;
 %% Part 1 - Execute the Laplacian of the Gaussian operator
 
 sd = 1.5; %standard deviation
-sup = 9; %support
+sup = ceil(sd * 3)*2 + 1; %support
 
 doLoG(sd, sup, imgShow);
 
@@ -21,12 +21,12 @@ convImg = filterLoG(imgOriginal, sd, sup, imgShow);
 %% Part 3 - Detect zero crossing  
 
 threshold = 10;
-edgeImg = detZeroCrossing(imgOriginal, sd, sup, threshold, imgShow);
+edgeImg = edgeDetection(imgOriginal, sd, sup, threshold, imgShow);
 
 
 %% Part 4 - Compare the results
 sd = 1.8;
-sup = 13;
+sup = ceil(sd * 3)*2 + 1;
 threshold = 1.9;
 compareAlg(imgOriginal, sd, sup, threshold, imgShow);
 
@@ -36,16 +36,18 @@ if(imgShow)
     %The support is fixed to 19, which is the minimum support when sigma is 3
     figure;
     for sigma=0.3:0.1:3
-        %                                    support, threshold
-        e1 = detZeroCrossing(imgOriginal, sigma, 19, 0.00001, false);
-        e2 = detZeroCrossing(imgOriginal, sigma, 19, 0.0001, false);
-        e3 = detZeroCrossing(imgOriginal, sigma, 19, 0.001, false);
-        e4 = detZeroCrossing(imgOriginal, sigma, 19, 0.01, false);
-        e5 = detZeroCrossing(imgOriginal, sigma, 19, 0.1, false);
-        e6 = detZeroCrossing(imgOriginal, sigma, 19, 1, false);
-        e7 = detZeroCrossing(imgOriginal, sigma, 19, 10, false);
-        e8 = detZeroCrossing(imgOriginal, sigma, 19, 100, false);
-        e9 = detZeroCrossing(imgOriginal, sigma, 19, 1000, false);
+        support = ceil(sigma * 3)*2 + 1;
+        doPlot = false;
+        %                                                 threshold
+        e1 = edgeDetection(imgOriginal, sigma, support, 0.00001, doPlot);
+        e2 = edgeDetection(imgOriginal, sigma, support, 0.0001, doPlot);
+        e3 = edgeDetection(imgOriginal, sigma, support, 0.001, doPlot);
+        e4 = edgeDetection(imgOriginal, sigma, support, 0.01, doPlot);
+        e5 = edgeDetection(imgOriginal, sigma, support, 0.1, doPlot);
+        e6 = edgeDetection(imgOriginal, sigma, support, 1, doPlot);
+        e7 = edgeDetection(imgOriginal, sigma, support, 10, doPlot);
+        e8 = edgeDetection(imgOriginal, sigma, support, 100, doPlot);
+        e9 = edgeDetection(imgOriginal, sigma, support, 1000, doPlot);
 
         subplot(3, 3, 1), imagesc(e1), colormap gray, title(['\sigma = ', num2str(sigma), ', th = 0.00001']);
         subplot(3, 3, 2), imagesc(e2), colormap gray, title(['\sigma = ', num2str(sigma), ', th = 0.0001']);

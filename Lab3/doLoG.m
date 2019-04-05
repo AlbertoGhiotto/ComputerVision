@@ -2,7 +2,7 @@ function imgLoG = doLoG(sigma, support, doPlot)
 
 %Check that the support is at least 6 times sigma
 if (support < (6 * sigma))
-   support = (6 * sigma) + 1; 
+   support = ceil(sigma * 3)*2 + 1; 
 end
 
 [X,Y] = meshgrid(-support : support);

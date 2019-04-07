@@ -23,7 +23,7 @@ convImg = filterLoG(imgOriginal, sd, sup, imgShow);
 %% Part 3 - Detect zero crossing  (GOOD)
 
 sd = 2;
-sup = ceil(sd * 3)*2 + 1; %support
+sup = ceil(sd * 3)*2 + 1;
 threshold = 0.6;
 edgeDetection(imgOriginal, sd, sup, threshold, imgShow);
 
@@ -31,7 +31,7 @@ edgeDetection(imgOriginal, sd, sup, threshold, imgShow);
 %% Part 3 - Detect zero crossing  (SMALL SIGMA -> NOISE)
 
 sd = 1.5;
-sup = ceil(sd * 3)*2 + 1; %support
+sup = ceil(sd * 3)*2 + 1;
 threshold = 0.6;
 edgeDetection(imgOriginal, sd, sup, threshold, imgShow);
 
@@ -39,7 +39,7 @@ edgeDetection(imgOriginal, sd, sup, threshold, imgShow);
 %% Part 3 - Detect zero crossing  (SMALL THRESHOLD, GOOD SIGMA -> LOT OF DETAILS)
 
 sd = 2;
-sup = ceil(sd * 3)*2 + 1; %support
+sup = ceil(sd * 3)*2 + 1;
 threshold = 0.2;
 edgeDetection(imgOriginal, sd, sup, threshold, imgShow);
 
@@ -47,7 +47,7 @@ edgeDetection(imgOriginal, sd, sup, threshold, imgShow);
 %% Part 3 - Detect zero crossing  (HIGH SIGMA -> NO SMALL DETAILS)
 
 sd = 3;
-sup = ceil(sd * 3)*2 + 1; %support
+sup = ceil(sd * 3)*2 + 1;
 threshold = 0.6;
 edgeDetection(imgOriginal, sd, sup, threshold, imgShow);
 

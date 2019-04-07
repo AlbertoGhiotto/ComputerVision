@@ -20,7 +20,7 @@ convImg = filterLoG(imgOriginal, sd, sup, imgShow);
 
 %% Part 3 - Detect zero crossing  
 
-threshold = 10;
+threshold = 3;
 edgeImg = edgeDetection(imgOriginal, sd, sup, threshold, imgShow);
 
 

@@ -34,7 +34,7 @@ threshold = 0.6;
 edgeDetection(imgOriginal, sd, sup, threshold, imgShow);
 
 
-%% Part 3 - Detect zero crossing  (SMALL THRESHOLD -> LOT OF DETAILS)
+%% Part 3 - Detect zero crossing  (SMALL THRESHOLD, GOOD SIGMA -> LOT OF DETAILS)
 
 sd = 2;
 threshold = 0.2;

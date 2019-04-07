@@ -1,3 +1,5 @@
+close all;
+
 imgOriginal = imread('cameraman.tif', 'tif');
 
 %Set this variable to true if you want to see the resulting images

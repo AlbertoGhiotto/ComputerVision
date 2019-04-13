@@ -9,6 +9,14 @@ img6 = imread('ur_c_s_03a_01_L_0381.png', 'png');
 
 doPlot = false;
 
+
+
+
+figure, imagesc(img1), title('Original Image')
+
+
+
+
 if (doPlot)
    figure, imagesc(img1), title('Original Image') 
    figure, imagesc(img2), title('Original Image')
@@ -24,6 +32,10 @@ convertAndShow(img3, doPlot);
 convertAndShow(img4, doPlot);
 convertAndShow(img5, doPlot);
 convertAndShow(img6, doPlot);
+
+
+prova = img_hsv(:,:,1);
+sky_rect = img_hsv(30:185, 573:728,1);
 
 %% Color segmentation
 
@@ -42,7 +54,7 @@ yvu = 401;
 [hue, sigma] = hue_id(img_hsv, xvl, yvl, xvu, yvu);
 %Segmentation of the image based on the desired hue value and the standard
 %deviation
-mask = img_seg(img_hsv, hue, sigma, true);
+mask = img_seg(img1, hue, sigma, true);
 
 
 

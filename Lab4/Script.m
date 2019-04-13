@@ -11,7 +11,6 @@ img4 = imread('ur_c_s_03a_01_L_0379.png', 'png');
 img5 = imread('ur_c_s_03a_01_L_0380.png', 'png');
 img6 = imread('ur_c_s_03a_01_L_0381.png', 'png');
 
-
 % Print the original (main)image
 %figure, imagesc(img1), title('Original image')
 
@@ -34,19 +33,21 @@ yvl = 380;
 xvu = 716;
 yvu = 401;
 
-[hue, sd] = hue_id(img1, xvl, yvl, xvu, yvu);
+[hue, sd] = hueID(img1, xvl, yvl, xvu, yvu, imgShow);
 
 %% Part 3 - Segment all the other images using 'm' and 'sd'
-plotSeg = false;
 
-is1 = colorSeg(img1, hue, sd, plotSeg);
-is2 = colorSeg(img2, hue, sd, plotSeg);
-is3 = colorSeg(img3, hue, sd, plotSeg);
-is4 = colorSeg(img4, hue, sd, plotSeg);
-is5 = colorSeg(img5, hue, sd, plotSeg);
-is6 = colorSeg(img6, hue, sd, plotSeg);
+imgShow = false; %Unnecessary at this stage
+is1 = colorSeg(img1, hue, sd, imgShow);
+is2 = colorSeg(img2, hue, sd, imgShow);
+is3 = colorSeg(img3, hue, sd, imgShow);
+is4 = colorSeg(img4, hue, sd, imgShow);
+is5 = colorSeg(img5, hue, sd, imgShow);
+is6 = colorSeg(img6, hue, sd, imgShow);
 
 %% Part 4 - Display centroid and bounding box in the segmented images
+
+imgShow = true; %Final result of red car detection
 
 figure, sgtitle('Red cars detected:')
 dispCBB(is1, img1, imgShow);

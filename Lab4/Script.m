@@ -25,28 +25,40 @@ convertAndShow(img5, imgShow);
 convertAndShow(img6, imgShow);
 
 %% Part 2 - Select red car area and compute mean and standard deviation
+%Coordinates of the two opposite vertices of the reference rectangle in 
+%which to detect the mean hue value and it standard deviation
+%Upper-left vertex
+xvl = 705; 
+yvl = 380;
+%Bottom-right vertex
+xvu = 716;
+yvu = 401;
 
-m = 0; %Mean 
-sd = 0; %Standard deviation 
-
-[m, sd] = paramArea(img1, imgShow);
+[hue, sd] = hue_id(img1, xvl, yvl, xvu, yvu);
 
 %% Part 3 - Segment all the other images using 'm' and 'sd'
+plotSeg = false;
 
-is1 = colorSeg(img1, m, sd, imgShow);
-is2 = colorSeg(img2, m, sd, imgShow);
-is3 = colorSeg(img3, m, sd, imgShow);
-is4 = colorSeg(img4, m, sd, imgShow);
-is5 = colorSeg(img5, m, sd, imgShow);
-is6 = colorSeg(img6, m, sd, imgShow);
+is1 = colorSeg(img1, hue, sd, plotSeg);
+is2 = colorSeg(img2, hue, sd, plotSeg);
+is3 = colorSeg(img3, hue, sd, plotSeg);
+is4 = colorSeg(img4, hue, sd, plotSeg);
+is5 = colorSeg(img5, hue, sd, plotSeg);
+is6 = colorSeg(img6, hue, sd, plotSeg);
 
 %% Part 4 - Display centroid and bounding box in the segmented images
 
+figure, sgtitle('Red cars detected:')
 dispCBB(is1, img1, imgShow);
+getframe;
 dispCBB(is2, img2, imgShow);
-dispCBB(is3, img3, imgShow); 
+getframe;
+dispCBB(is3, img3, imgShow);
+getframe;
 dispCBB(is4, img4, imgShow);
+getframe;
 dispCBB(is5, img5, imgShow);
+getframe;
 dispCBB(is6, img6, imgShow);
 
 

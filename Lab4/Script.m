@@ -9,14 +9,6 @@ img6 = imread('ur_c_s_03a_01_L_0381.png', 'png');
 
 doPlot = false;
 
-
-
-
-figure, imagesc(img1), title('Original Image')
-
-
-
-
 if (doPlot)
    figure, imagesc(img1), title('Original Image') 
    figure, imagesc(img2), title('Original Image')

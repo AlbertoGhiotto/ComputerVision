@@ -46,7 +46,16 @@ yvu = 401;
 [hue, sigma] = hue_id(img_hsv, xvl, yvl, xvu, yvu);
 %Segmentation of the image based on the desired hue value and the standard
 %deviation
+figure
 mask = img_seg(img1, hue, sigma, true);
-
-
+getframe;
+mask = img_seg(img2, hue, sigma, true);
+getframe;
+mask = img_seg(img3, hue, sigma, true);
+getframe;
+mask = img_seg(img4, hue, sigma, true);
+getframe;
+mask = img_seg(img5, hue, sigma, true);
+getframe;
+mask = img_seg(img6, hue, sigma, true);
 

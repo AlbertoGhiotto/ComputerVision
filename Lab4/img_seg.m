@@ -65,17 +65,7 @@ minX2 = min(cc);
 maxY2 = max(rr);
 maxX2 = max(cc);
 
-figure, imagesc(mask), colormap gray, title('Segmented image') 
-hold on
-plot(car1(:,2), car1(:,1), 'w', 'LineWidth', 2)
-plot(car2(:,2), car2(:,1), 'w', 'LineWidth', 2)
-plot(mX1,mY1,'*g');
-plot(mX2,mY2,'*g');
-rectangle('Position', [minX1, minY1, maxX1-minX1, maxY1-minY1], 'EdgeColor', [0, 1, 0]);
-rectangle('Position', [minX2, minY2, maxX2-minX2, maxY2-minY2], 'EdgeColor', [0, 1, 0]);
-
 if (doPlot)
-    figure
     subplot(1,2,1), imagesc(img_rgbSmooth),  colormap hsv,  title('Original image')
     hold on
     plot(car1(:,2), car1(:,1), 'w', 'LineWidth', 2)

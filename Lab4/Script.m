@@ -1,7 +1,7 @@
 close all;
 
 % To print or not the images
-imgShow = false;
+imgShow = true;
 
 % Load all the images form the memory
 img1 = imread('ur_c_s_03a_01_L_0376.png', 'png');
@@ -42,12 +42,12 @@ is6 = colorSeg(img6, m, sd, imgShow);
 
 %% Part 4 - Display centroid and bounding box in the segmented images
 
-dispCBB(is1, true);
-dispCBB(is2, imgShow);
-dispCBB(is3, imgShow); 
-dispCBB(is4, imgShow);
-dispCBB(is5, imgShow);
-dispCBB(is6, imgShow);
+dispCBB(is1, img1, imgShow);
+dispCBB(is2, img2, imgShow);
+dispCBB(is3, img3, imgShow); 
+dispCBB(is4, img4, imgShow);
+dispCBB(is5, img5, imgShow);
+dispCBB(is6, img6, imgShow);
 
 
 

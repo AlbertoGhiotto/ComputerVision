@@ -1,4 +1,4 @@
-function dispCBB(seg, doPlot)
+function dispCBB(seg, imgOrig, doPlot)
 
 %Label the image to find connected elements
 lab = bwlabel(seg, 8);
@@ -20,34 +20,45 @@ end
 
 %To display the results
 if(doPlot)
-    %Segmented image
-    %figure('units','normalized','outerposition',[0 0 1 1]); %Open the image full screen
-    figure, imagesc(seg), colormap gray, title('Red cars detected')
-    hold on;
     %Find vertex for rectangle 1
-    [r, c] = find(lab == car1);
-    min_r = min(r);
-    max_r = max(r); 
-    min_c = min(c);
-    max_c = max(c);
+    [r1, c1] = find(lab == car1);
+    min_r1 = min(r1);
+    max_r1 = max(r1); 
+    min_c1 = min(c1);
+    max_c1 = max(c1);
     %Find coordinates of the first centrode
-    xc = floor((min_c+max_c)/2);
-    yc = floor((min_r+max_r)/2);
-    %Display the first box
-    plot(xc,yc,'*r');
-    rectangle('Position', [min_c, min_r, max_c-min_c, max_r-min_r], 'EdgeColor', [1, 0, 0]);
-
+    xc1 = floor((min_c1+max_c1)/2);
+    yc1 = floor((min_r1+max_r1)/2);
+    
     %Find vertex for rectangle 2
-    [r, c] = find(lab == car2);
-    min_r = min(r);
-    max_r = max(r); 
-    min_c = min(c);
-    max_c = max(c);
+    [r2, c2] = find(lab == car2);
+    min_r2 = min(r2);
+    max_r2 = max(r2); 
+    min_c2 = min(c2);
+    max_c2 = max(c2);
     %Find coordinates of the second centrode
-    xc = floor((min_c+max_c)/2);
-    yc = floor((min_r+max_r)/2);
+    xc2 = floor((min_c2+max_c2)/2);
+    yc2 = floor((min_r2+max_r2)/2);
+    
+    %Display all
+    figure, sgtitle('Red cars detected in...')
+    
+    subplot(1, 2, 1), imagesc(imgOrig), title('...original image')
+    hold on;
+    %Display the first box
+    plot(xc1,yc1,'*r')
+    rectangle('Position', [min_c1, min_r1, max_c1-min_c1, max_r1-min_r1], 'EdgeColor', [1, 0, 0])
     %Display the second box
-    plot(xc,yc,'*r');
-    rectangle('Position', [min_c, min_r, max_c-min_c, max_r-min_r], 'EdgeColor', [1, 0, 0]);
+    plot(xc2,yc2,'*r')
+    rectangle('Position', [min_c2, min_r2, max_c2-min_c2, max_r2-min_r2], 'EdgeColor', [1, 0, 0])
+    hold off;
+    
+    subplot(1, 2, 2), imagesc(seg), colormap gray, title('...segmented image')
+    hold on;
+    plot(xc1,yc1,'*r')
+    rectangle('Position', [min_c1, min_r1, max_c1-min_c1, max_r1-min_r1], 'EdgeColor', [1, 0, 0])
+    plot(xc2,yc2,'*r')
+    rectangle('Position', [min_c2, min_r2, max_c2-min_c2, max_r2-min_r2], 'EdgeColor', [1, 0, 0])
+    hold off;
 end
 end

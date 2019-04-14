@@ -3,7 +3,7 @@ function dispCBB(mask, imgOrig, doPlot)
 %Label the image to find connected elements
 L = bwlabel(mask, 8);
 
-%Car1
+%Car 1
 %Finding centroid coordinates
 [rr, cc] = find(L == 1);
 mY1 = mean(rr);
@@ -14,7 +14,7 @@ minX1 = min(cc);
 maxY1 = max(rr);
 maxX1 = max(cc);
 
-%Car2
+%Car 2
 %The same as before
 [rr, cc] = find(L == 2);
 mY2 = mean(rr);

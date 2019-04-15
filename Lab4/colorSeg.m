@@ -10,7 +10,7 @@ h = fspecial('gaussian', support, sigma);
 %Apply the filter
 imgFilt = imfilter(imgOriginal, h); 
 
-% Convert from rgb colors to hsv
+%To convert from rgb colors to hsv
 img_hsv = rgb2hsv(imgFilt);
 
 %% Simple segmentation
@@ -21,9 +21,9 @@ ub = (hue + 3*sd);
 %Set to one pixels whose value is in the range [hue-3sigma, hue+3sigma]
 mask = ( (img_hsv(:,:,1) > lb) & (img_hsv(:,:,1) < ub) );
 
-%Since hue values are circular, when hue-3sigma is smaller than zero
-%the range of values to be accepted is the one one would have by 
-%re-entering from the upper extreme of the range of hue vaues
+%The hue values are circular therefore if hue-3sigma is smaller than zero
+%than the range of values to be accepted is to be re-enter from the upper
+%extreme of the rage of hue vaues
 if ( (hue - 3*sd) < 0 )
     mask = mask + ( img_hsv(:,:,1) > (1 + (hue - 3*sd)) );
 end

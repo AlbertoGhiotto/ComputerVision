@@ -2,10 +2,10 @@ function [mean_hue, sigma] = hueID(imgOriginal,xvl, yvl, xvu, yvu, doPlot)
 %% xvl,yvl : upper-left vertex coordinates of the region of the image in 
 %% which to compute the mean and standard deviation 
 %% xvu,yvu : bottom-right vertex coordinates
-%% This function is specifically designed to detect hue values of red, hence it gets wrong if 
+%% This function is thought to detect hue values of red and wrong if 
 %% the mean value is around 0.5
 
-%Convert from rgb colors to hsv
+%To convert from rgb colors to hsv
 img_hsv = rgb2hsv(imgOriginal);
 
 %Consider only the hue values of the region of interest in the image

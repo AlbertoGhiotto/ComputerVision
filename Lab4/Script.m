@@ -3,7 +3,7 @@ close all;
 % To print or not the images
 imgShow = true;
 
-% Load all the images from the memory
+% Load all the images form the memory
 img1 = imread('ur_c_s_03a_01_L_0376.png', 'png');
 img2 = imread('ur_c_s_03a_01_L_0377.png', 'png');
 img3 = imread('ur_c_s_03a_01_L_0378.png', 'png');
@@ -25,7 +25,7 @@ convertAndShow(img6, imgShow);
 
 %% Part 2 - Select red car area and compute mean and standard deviation
 %Coordinates of the two opposite vertices of the reference rectangle in 
-%which to detect the mean hue value and its standard deviation
+%which to detect the mean hue value and it standard deviation
 
 %Upper-left vertex
 xvl = 705; 
@@ -49,18 +49,11 @@ is6 = colorSeg(img6, hue, sd, imgShow);
 %% Part 4 - Display centroid and bounding box in the segmented images
 
 imgShow = true; %Final result of red car detection
-
-figure, sgtitle('Red cars detected:')
 dispCBB(is1, img1, imgShow);
-getframe;
 dispCBB(is2, img2, imgShow);
-getframe;
 dispCBB(is3, img3, imgShow);
-getframe;
 dispCBB(is4, img4, imgShow);
-getframe;
 dispCBB(is5, img5, imgShow);
-getframe;
 dispCBB(is6, img6, imgShow);
 
 

@@ -12,7 +12,7 @@ img5 = imread('ur_c_s_03a_01_L_0380.png', 'png');
 img6 = imread('ur_c_s_03a_01_L_0381.png', 'png');
 
 % Print the original (main)image
-%figure, imagesc(img1), title('Original image')
+figure, imagesc(img1), title('Original image')
 
 %% Part 1 - Display the images with the different color domains
 

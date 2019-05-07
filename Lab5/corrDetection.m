@@ -16,7 +16,7 @@ templateWidth = size(template, 2);
 %Account for the padding that normxcorr2 adds
 mX = mX - templateWidth/2;
 mY = mY - templateHeight/2;
-%Compute the coordinates of the up left vertex (to plot the rectangle)
+%Compute the coordinates of the top left vertex (to plot the rectangle)
 minX = mX - templateWidth/2;
 minY = mY - templateHeight/2;
 

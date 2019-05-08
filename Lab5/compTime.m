@@ -3,10 +3,10 @@ function compTime(yvl, yvu, xvl, xvu, img )
 imgShow = false;
 imgGray = rgb2gray(img);
 
-template = imgGray(yvl:yvu, xvl:xvu, :);
+template = imgGray(yvl:yvu, xvl:xvu);
 x = abs(xvl-xvu);
 y = abs(yvl-yvu);
-figure, imagesc(template), title(['Template [', num2str(x) , 'x' , num2str(y) , ']']), colormap gray
+% figure, imagesc(template), title(['Template [', num2str(x) , 'x' , num2str(y) , ']']), colormap gray
 
 %Start a timer
 N = 10;

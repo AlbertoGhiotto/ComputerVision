@@ -25,7 +25,7 @@ yvu = 430;
 %Convert to gray scale
 img1gray = rgb2gray(img1);
 %Take the part of the image of interest
-template = img1gray(yvl:yvu, xvl:xvu, :);
+template = img1gray(yvl:yvu, xvl:xvu);
 figure, imagesc(template), title('Template [89x78]'), colormap gray
 
 corrDetection(img1, template, imgShow);
@@ -50,21 +50,21 @@ compTime(yvl, yvu, xvl, xvu, img1 );
 
 %Second template evaluation
 %Top-left vertex
-xvl = 675; 
-yvl = 342;
+xvl = 670; 
+yvl = 337;
 %Bottom-right vertex
-xvu = 784;
-yvu = 440;
+xvu = 789;
+yvu = 445;
 
 compTime(yvl, yvu, xvl, xvu, img1 );
 
 %Third template evaluation
 %Top-left vertex
-xvl = 665; 
-yvl = 332;
+xvl = 655; 
+yvl = 322;
 %Bottom-right vertex
-xvu = 794;
-yvu = 450;
+xvu = 804;
+yvu = 460;
 
 compTime(yvl, yvu, xvl, xvu, img1 );
 

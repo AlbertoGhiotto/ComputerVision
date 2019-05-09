@@ -1,11 +1,9 @@
-function compTime(yvl, yvu, xvl, xvu, img )
+function compTime(img, template)
 
 imgShow = false;
-imgGray = rgb2gray(img);
 
-template = imgGray(yvl:yvu, xvl:xvu);
-x = abs(xvl-xvu);
-y = abs(yvl-yvu);
+x = size(template, 2);
+y = size(template, 1);
 % figure, imagesc(template), title(['Template [', num2str(x) , 'x' , num2str(y) , ']']), colormap gray
 
 %Start a timer

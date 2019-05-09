@@ -36,7 +36,7 @@ corrDetection(img5, template, imgShow);
 corrDetection(img6, template, imgShow);
 
 
-%% Part 2 (Computational comparisons)
+%% Part 2 A (Computational time comparisons)
 
 %First template evaluation
 %Top-left vertex
@@ -46,25 +46,84 @@ yvl = 352;
 xvu = 774;
 yvu = 430;
 
-compTime(yvl, yvu, xvl, xvu, img1 );
+template = img1gray(yvl:yvu, xvl:xvu);
+
+compTime(img1, template);
 
 %Second template evaluation
 %Top-left vertex
-xvl = 670; 
-yvl = 337;
+xvl = xvl - 25; 
+yvl = yvl - 25;
 %Bottom-right vertex
-xvu = 789;
-yvu = 445;
+xvu = xvu + 25;
+yvu = yvu + 25;
 
-compTime(yvl, yvu, xvl, xvu, img1 );
+template = img1gray(yvl:yvu, xvl:xvu);
+
+compTime(img1, template);
 
 %Third template evaluation
 %Top-left vertex
-xvl = 655; 
-yvl = 322;
+xvl = xvl - 25; 
+yvl = yvl - 25;
 %Bottom-right vertex
-xvu = 804;
-yvu = 460;
+xvu = xvu + 25;
+yvu = yvu + 25;
 
-compTime(yvl, yvu, xvl, xvu, img1 );
+template = img1gray(yvl:yvu, xvl:xvu);
 
+compTime(img1, template);
+
+%% Part 2 B (Accuracy comparison)
+
+%First template evaluation
+%Top-left vertex
+xvl = 685; 
+yvl = 352;
+%Bottom-right vertex
+xvu = 774;
+yvu = 430;
+
+template = img1gray(yvl:yvu, xvl:xvu);
+
+[mX,mY] = corrDetection(img6, template, imgShow);
+
+x = size(template, 2);
+y = size(template, 1);
+X = sprintf(['The pixel found by a window ', num2str(x), 'x', num2str(y), ' is [', num2str(mX), ',', num2str(mY),']']);
+disp(X)
+
+
+%Second template evaluation
+%Top-left vertex
+xvl = xvl - 25; 
+yvl = yvl - 25;
+%Bottom-right vertex
+xvu = xvu + 25;
+yvu = yvu + 25;
+
+template = img1gray(yvl:yvu, xvl:xvu);
+
+[mX,mY] = corrDetection(img6, template, imgShow);
+
+x = size(template, 2);
+y = size(template, 1);
+X = sprintf(['The pixel found by a window ', num2str(x), 'x', num2str(y), ' is [', num2str(mX), ',', num2str(mY),']']);
+disp(X)
+
+%Third template evaluation
+%Top-left vertex
+xvl = xvl - 25; 
+yvl = yvl - 25;
+%Bottom-right vertex
+xvu = xvu + 25;
+yvu = yvu + 25;
+
+template = img1gray(yvl:yvu, xvl:xvu);
+
+[mX,mY] = corrDetection(img6, template, imgShow);
+
+x = size(template, 2);
+y = size(template, 1);
+X = sprintf(['The pixel found by a window ', num2str(x), 'x', num2str(y), ' is [', num2str(mX), ',', num2str(mY),']']);
+disp(X)

@@ -50,6 +50,7 @@ template = img1gray(yvl:yvu, xvl:xvu);
 
 compTime(img1, template);
 
+
 %Second template evaluation
 %Top-left vertex
 xvl = xvl - 25; 

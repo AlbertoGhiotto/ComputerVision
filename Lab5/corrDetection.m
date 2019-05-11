@@ -14,13 +14,13 @@ templateWidth = size(template, 2);
 %Account for the padding that normxcorr2 adds
 mX = mX - templateWidth/2;
 mY = mY - templateHeight/2;
-%Compute the coordinates of the bottom left vertex (to plot the rectangle)
+%Compute the coordinates of the top left vertex (to plot the rectangle)
 minX = mX - templateWidth/2;
 minY = mY - templateHeight/2;
 
 if(doPlot)
-    figure, subplot(1,2,1), imagesc(C),colormap gray, title('Crosscorrelation')
-    subplot(1,2,2), imagesc(img), title('Car detection')
+    figure,imagesc(C),colormap gray
+    figure, imagesc(img), title('Car detection')
     hold on
     rectangle('Position', [minX, minY, templateWidth, templateHeight], 'EdgeColor', [0, 1, 0]);
     plot(mX,mY,'*g');

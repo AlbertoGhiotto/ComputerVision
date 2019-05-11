@@ -1,9 +1,9 @@
 close all;
 
-% To print or not the images
+% Set to true to display the images
 imgShow = true;
 
-% Load all the images form the memory
+% Load all the images from memory
 img1 = imread('ur_c_s_03a_01_L_0376.png', 'png');
 img2 = imread('ur_c_s_03a_01_L_0377.png', 'png');
 img3 = imread('ur_c_s_03a_01_L_0378.png', 'png');
@@ -24,7 +24,7 @@ yvu = 430;
 
 %Convert to gray scale
 img1gray = rgb2gray(img1);
-%Take the part of the image of interest
+%Take the part of interest of the image 
 template = img1gray(yvl:yvu, xvl:xvu);
 figure, imagesc(template), title('Template [89x78]'), colormap gray
 

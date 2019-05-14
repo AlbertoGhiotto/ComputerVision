@@ -1,9 +1,9 @@
 close all;
 
-% Set to true to display the images
+% To print or not the images
 imgShow = true;
 
-% Load all the images from memory
+% Load all the images form the memory
 img1 = imread('ur_c_s_03a_01_L_0376.png', 'png');
 img2 = imread('ur_c_s_03a_01_L_0377.png', 'png');
 img3 = imread('ur_c_s_03a_01_L_0378.png', 'png');
@@ -24,7 +24,7 @@ yvu = 430;
 
 %Convert to gray scale
 img1gray = rgb2gray(img1);
-%Take the part of interest of the image 
+%Take the part of the image of interest
 template = img1gray(yvl:yvu, xvl:xvu);
 figure, imagesc(template), title('Template [89x78]'), colormap gray
 
@@ -53,11 +53,11 @@ compTime(img1, template);
 
 %Second template evaluation
 %Top-left vertex
-xvl = xvl - 25; 
-yvl = yvl - 25;
+xvl = xvl - 100; 
+yvl = yvl - 100;
 %Bottom-right vertex
-xvu = xvu + 25;
-yvu = yvu + 25;
+xvu = xvu + 100;
+yvu = yvu + 100;
 
 template = img1gray(yvl:yvu, xvl:xvu);
 
@@ -65,11 +65,11 @@ compTime(img1, template);
 
 %Third template evaluation
 %Top-left vertex
-xvl = xvl - 25; 
-yvl = yvl - 25;
+xvl = xvl - 50; 
+yvl = yvl - 50;
 %Bottom-right vertex
-xvu = xvu + 25;
-yvu = yvu + 25;
+xvu = xvu + 50;
+yvu = yvu + 50;
 
 template = img1gray(yvl:yvu, xvl:xvu);
 
@@ -97,11 +97,11 @@ disp(X);
 
 %Second template evaluation
 %Top-left vertex
-xvl = xvl - 25; 
-yvl = yvl - 25;
+xvl = xvl - 100; 
+yvl = yvl - 100;
 %Bottom-right vertex
-xvu = xvu + 25;
-yvu = yvu + 25;
+xvu = xvu + 100;
+yvu = yvu + 100;
 
 template = img1gray(yvl:yvu, xvl:xvu);
 
@@ -114,11 +114,11 @@ disp(X)
 
 %Third template evaluation
 %Top-left vertex
-xvl = xvl - 25; 
-yvl = yvl - 25;
+xvl = xvl - 50; 
+yvl = yvl - 50;
 %Bottom-right vertex
-xvu = xvu + 25;
-yvu = yvu + 25;
+xvu = xvu + 50;
+yvu = yvu + 50;
 
 template = img1gray(yvl:yvu, xvl:xvu);
 

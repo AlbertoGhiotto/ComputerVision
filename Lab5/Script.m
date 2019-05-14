@@ -110,7 +110,7 @@ template = img1gray(yvl:yvu, xvl:xvu);
 x = size(template, 2);
 y = size(template, 1);
 X = sprintf(['The pixel found by a window ', num2str(x), 'x', num2str(y), ' is [', num2str(mX), ',', num2str(mY),']']);
-disp(X)
+disp(X);
 
 %Third template evaluation
 %Top-left vertex
@@ -127,4 +127,4 @@ template = img1gray(yvl:yvu, xvl:xvu);
 x = size(template, 2);
 y = size(template, 1);
 X = sprintf(['The pixel found by a window ', num2str(x), 'x', num2str(y), ' is [', num2str(mX), ',', num2str(mY),']']);
-disp(X)
+disp(X);

@@ -1,3 +1,5 @@
+
+
 function [mX,mY] = corrDetection(img, template, doPlot)
 
 %Convert to gray scale

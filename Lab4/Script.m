@@ -57,5 +57,14 @@ dispCBB(is5, img5, imgShow);
 dispCBB(is6, img6, imgShow);
 
 
+%% Comparison for lab 5
 
-
+t = cputime;
+imgShow = false; %Unnecessary at this stage
+is1 = colorSeg(img1, hue, sd, imgShow);
+[mX,mY] = dispCBB(is1, img1, imgShow);
+e = (cputime - t);
+X = sprintf(['The computational time is %d'], e);
+disp(X);
+X = sprintf(['The pixel found is [', num2str(mX), ',', num2str(mY),']']);
+disp(X)

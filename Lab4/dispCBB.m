@@ -1,4 +1,4 @@
-function dispCBB(mask, imgOrig, doPlot)
+function [mX2,mY2] = dispCBB(mask, imgOrig, doPlot)
 
 %Label the image to find connected elements
 L = bwlabel(mask, 8);

@@ -28,7 +28,7 @@ end
 P = [X1'; X2'];
 
 %Threshold to distinguish between inliers and outliers
-th = 3;
+th = 1;
 [bestH, consensus, outliers]=ransacH(P, th);
 
 % inverse mapping

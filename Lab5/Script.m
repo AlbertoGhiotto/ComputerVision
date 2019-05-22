@@ -52,11 +52,11 @@ compTime(img1, template);
 
 %Second template evaluation
 %Top-left vertex
-xvl = xvl - 25; 
-yvl = yvl - 25;
+xvl = xvl - 100; 
+yvl = yvl - 100;
 %Bottom-right vertex
-xvu = xvu + 25;
-yvu = yvu + 25;
+xvu = xvu + 100;
+yvu = yvu + 100;
 
 template = img1gray(yvl:yvu, xvl:xvu);
 
@@ -64,11 +64,11 @@ compTime(img1, template);
 
 %Third template evaluation
 %Top-left vertex
-xvl = xvl - 25; 
-yvl = yvl - 25;
+xvl = xvl - 50; 
+yvl = yvl - 50;
 %Bottom-right vertex
-xvu = xvu + 25;
-yvu = yvu + 25;
+xvu = xvu + 50;
+yvu = yvu + 50;
 
 template = img1gray(yvl:yvu, xvl:xvu);
 
@@ -91,16 +91,16 @@ template = img1gray(yvl:yvu, xvl:xvu);
 x = size(template, 2);
 y = size(template, 1);
 X = sprintf(['The pixel found by a window ', num2str(x), 'x', num2str(y), ' is [', num2str(mX), ',', num2str(mY),']']);
-disp(X)
+disp(X);
 
 
 %Second template evaluation
 %Top-left vertex
-xvl = xvl - 25; 
-yvl = yvl - 25;
+xvl = xvl - 100; 
+yvl = yvl - 100;
 %Bottom-right vertex
-xvu = xvu + 25;
-yvu = yvu + 25;
+xvu = xvu + 100;
+yvu = yvu + 100;
 
 template = img1gray(yvl:yvu, xvl:xvu);
 
@@ -109,15 +109,15 @@ template = img1gray(yvl:yvu, xvl:xvu);
 x = size(template, 2);
 y = size(template, 1);
 X = sprintf(['The pixel found by a window ', num2str(x), 'x', num2str(y), ' is [', num2str(mX), ',', num2str(mY),']']);
-disp(X)
+disp(X);
 
 %Third template evaluation
 %Top-left vertex
-xvl = xvl - 25; 
-yvl = yvl - 25;
+xvl = xvl - 50; 
+yvl = yvl - 50;
 %Bottom-right vertex
-xvu = xvu + 25;
-yvu = yvu + 25;
+xvu = xvu + 50;
+yvu = yvu + 50;
 
 template = img1gray(yvl:yvu, xvl:xvu);
 
@@ -126,4 +126,4 @@ template = img1gray(yvl:yvu, xvl:xvu);
 x = size(template, 2);
 y = size(template, 1);
 X = sprintf(['The pixel found by a window ', num2str(x), 'x', num2str(y), ' is [', num2str(mX), ',', num2str(mY),']']);
-disp(X)
+disp(X);

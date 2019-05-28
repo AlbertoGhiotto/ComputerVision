@@ -1,6 +1,6 @@
 function [F] = EightPointsAlgorithm(P1, P2)
 
-%Compute the number of correpospondences (rows of A)
+%Compute the number of correspondences (rows of A)
 [coord, nPoints] = size(P1);
 A = zeros(nPoints, 9);
 

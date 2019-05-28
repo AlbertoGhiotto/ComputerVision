@@ -17,7 +17,7 @@ img2 = imread('Mire/Mire2.pgm');
 F1 = EightPointsAlgorithm(P1, P2);
 F2 = EightPointsAlgorithmN(P1, P2);
 
-%% Visualize the results and estimate F
+%% Visualize the results and evaluate the estimation of F
 
 %Check (P2'*F*P1 = 0) holds for all points (both with and without normalization)
 disp('EPIPOLAR CONSTRAINT CHECKING WITH ORIGINAL POINTS');

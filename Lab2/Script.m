@@ -10,7 +10,7 @@ imgShow = true;
 
 %Gaussian noise
 sigma = 20;
-imgGaussianNoise = gaussianNoise(imgOriginal, sigma, imgShow);
+imgGaussianNoise = GaussianNoise(imgOriginal, sigma, imgShow);
 
 %Salt and pepper noise
 noiseDensity = 0.2;
@@ -22,26 +22,26 @@ imgSPNoise = SPNoise(imgOriginal, noiseDensity, imgShow);
 %% Dimension of the filter 3
 support = 3;
 %Moving average filter
-MAFilter(imgGaussianNoise, support, imgShow, 'gaussian');
-MAFilter(imgSPNoise, support, imgShow, 'salt and pepper');
+MAFilter(imgGaussianNoise, support, imgShow, 'Gaussian');
+MAFilter(imgSPNoise, support, imgShow, 'Salt and pepper');
 %Gaussian filter
 sigma = support/6;      %3*sigma has to be equal or less than half width
-GaussianFilter(imgGaussianNoise, support, sigma, imgShow, 'gaussian');
-GaussianFilter(imgSPNoise, support, sigma, imgShow, 'salt and pepper');
+GaussianFilter(imgGaussianNoise, support, sigma, imgShow, 'Gaussian');
+GaussianFilter(imgSPNoise, support, sigma, imgShow, 'Salt and pepper');
 %Median filter
-MedianFilter(imgGaussianNoise, support, imgShow, 'gaussian');
-MedianFilter(imgSPNoise, support, imgShow, 'salt and pepper');
+MedianFilter(imgGaussianNoise, support, imgShow, 'Gaussian');
+MedianFilter(imgSPNoise, support, imgShow, 'Salt and pepper');
 %% The same with a different dimension of the filter 7
 support = 7;
 
-MAFilter(imgGaussianNoise, support, imgShow, 'gaussian');
-MAFilter(imgSPNoise, support, imgShow, 'salt and pepper');
+MAFilter(imgGaussianNoise, support, imgShow, 'Gaussian');
+MAFilter(imgSPNoise, support, imgShow, 'Salt and pepper');
 
-GaussianFilter(imgGaussianNoise, support, sigma, imgShow, 'gaussian');
-GaussianFilter(imgSPNoise, support, sigma, imgShow, 'salt and pepper');
+GaussianFilter(imgGaussianNoise, support, sigma, imgShow, 'Gaussian');
+GaussianFilter(imgSPNoise, support, sigma, imgShow, 'Salt and pepper');
 
-MedianFilter(imgGaussianNoise, support, imgShow, 'gaussian');
-MedianFilter(imgSPNoise, support, imgShow, 'salt and pepper');
+MedianFilter(imgGaussianNoise, support, imgShow, 'Gaussian');
+MedianFilter(imgSPNoise, support, imgShow, 'Salt and pepper');
 
 
 
@@ -49,13 +49,13 @@ MedianFilter(imgSPNoise, support, imgShow, 'salt and pepper');
 
 support = 7;
 %Filter without changing
-noChangeFilter(imgOriginal, support, imgShow);
+NoChangeFilter(imgOriginal, support, imgShow);
 
 %Translate by filtering
-translateFilter(imgOriginal, support, imgShow);
+TranslateFilter(imgOriginal, support, imgShow);
 
 %Sharpening filter
-sharpeningFilter(imgOriginal, support, imgShow);
+SharpeningFilter(imgOriginal, support, imgShow);
 
 
 

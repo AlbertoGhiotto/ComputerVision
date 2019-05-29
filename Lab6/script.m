@@ -34,14 +34,14 @@ visualizeEpipolarLines(I1, I2, F2, P1i, P2i)
 %Compute the right epipole
 [U, D, V] = svd(F1);
 Er1 = U(:,3);
-%Compute the right epipole
+%Compute the left epipole
 El1 = V(:,3);
 
 % F2
 %Compute the right epipole
 [U, D, V] = svd(F2);
 Er2 = U(:,3);
-%Compute the right epipole
+%Compute the left epipole
 El2 = V(:,3);
 
 

@@ -1,10 +1,10 @@
 clear all
 
-P1i = load("./Rubik/rubik1.points");
-P2i = load("./Rubik/rubik2.points");
+P1i = load("./Mire/mire1.points");
+P2i = load("./Mire/mire2.points");
 
-I1 = imread("./Rubik/rubik1.pgm", "pgm");
-I2 = imread("./Rubik/rubik2.pgm", "pgm");
+I1 = imread("./Mire/mire1.pgm", "pgm");
+I2 = imread("./Mire/mire2.pgm", "pgm");
 
 if size(P1i,2) ~= 2 || size(P2i,2) ~= 2 || size(P1i,1) ~= size(P2i,1)
     error('pts must be both Nx2');
@@ -21,8 +21,8 @@ F2 = EightPointsAlgorithmN(P1,P2);
 
 %% Evaluation
 % Test the fact that the epipolar constraint holds
-answer1 = checkEpConstraint(P1, P2, F1);
-answer2 = checkEpConstraint(P1, P2, F2);
+[answer1, maxerror1] = checkEpConstraint(P1, P2, F1);
+[answer2, maxerror2] = checkEpConstraint(P1, P2, F2);
 
 %Visualize the correspondences along with the epipolar lines
 visualizeEpipolarLines(I1, I2, F1, P1i, P2i)
@@ -61,10 +61,10 @@ Perr1 = [P1 Perr1];
 Perr2 = [P2 Perr2];
 
 %Compute the fundamental matrix
-F3 = EightPointsAlgorithm(Perr1,Perr2);
+F3 = EightPointsAlgorithmN(Perr1,Perr2);
 
 %Check the epipolar constraint
-answer3 = checkEpConstraint(Perr1, Perr2, F3);
+[answer3, maxerror3] = checkEpConstraint(Perr1, Perr2, F3);
 
 %Visualize the correspondences along with the epipolar lines
 visualizeEpipolarLines(I1, I2, F3, P1i, P2i)
@@ -75,12 +75,12 @@ visualizeEpipolarLines(I1, I2, F3, P1i, P2i)
 P = [Perr1(1:2,:); Perr2(1:2,:)];
 
 %Threshold to consider a point inlier
-th = 2;
+th = 3;
 %Compute the fundamental matrix using ransac
 [bestF, consensus, outliers] = ransacF(P, th);
 
 %Check the epipolar constraint
-answer4 = checkEpConstraint(P1, P2, bestF);
+[answer4, maxerror4] = checkEpConstraint(P1, P2, bestF);
 
 %Visualize the correspondences along with the epipolar lines
 visualizeEpipolarLines(I1, I2, bestF, P1i, P2i)

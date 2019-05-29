@@ -14,7 +14,7 @@ function [bestF, consensus, outliers]=ransacF(P, th)
         M = P(:, perm(1:8)); % select 8 random pairs
         X1 = [M(1:2, :); ones(1, 8)];
         X2 = [M(3:4, :); ones(1, 8)];
-        F = EightPointsAlgorithm(X1, X2);
+        F = EightPointsAlgorithmN(X1, X2);
         residuals = testF(F, sin, des);
         nInlier = sum(residuals < th) / N; % current estimated inliers
         if(nInlier > bestNInlier) % if number of inliers grows

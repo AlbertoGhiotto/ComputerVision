@@ -6,6 +6,12 @@ P2i = load("./Mire/mire2.points");
 I1 = imread("./Mire/mire1.pgm", "pgm");
 I2 = imread("./Mire/mire2.pgm", "pgm");
 
+% P1i = load("./Rubik/rubik1.points");
+% P2i = load("./Rubik/rubik2.points");
+% 
+% I1 = imread("./Rubik/rubik1.pgm", "pgm");
+% I2 = imread("./Rubik/rubik2.pgm", "pgm");
+
 if size(P1i,2) ~= 2 || size(P2i,2) ~= 2 || size(P1i,1) ~= size(P2i,1)
     error('pts must be both Nx2');
 end
@@ -75,7 +81,7 @@ visualizeEpipolarLines(I1, I2, F3, P1i, P2i)
 P = [Perr1(1:2,:); Perr2(1:2,:)];
 
 %Threshold to consider a point inlier
-th = 3;
+th = 10;
 %Compute the fundamental matrix using ransac
 [bestF, consensus, outliers] = ransacF(P, th);
 

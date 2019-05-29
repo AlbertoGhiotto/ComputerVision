@@ -11,6 +11,8 @@ for ii = 1 : N
     result = P2(:,ii)' * F * P1(:,ii);
     if abs(result) > th
         answer = false;
+        maxerror = abs(result);
+        break;
     end
     if abs(result) > maxerror
         maxerror = abs(result);

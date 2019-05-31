@@ -1,39 +1,31 @@
-function [F] = EightPointsAlgorithm(P1, P2)
+function F = EightPointsAlgorithm(P1, P2)
 
-%Compute the number of correspondences (rows of A)
-[coord, nPoints] = size(P1);
-A = zeros(nPoints, 9);
+%Number of correspondences
+N = size(P1,2);
 
-%Fill the matrix A with the proper points
-for i=1:nPoints
-    A(i, 1) = P2(1, i)*P1(1, i);
-    A(i, 2) = P2(1, i)*P1(2, i);
-    A(i, 3) = P2(1, i);
-    A(i, 4) = P2(2, i)*P1(1, i);
-    A(i, 5) = P2(2, i)*P1(2, i);
-    A(i, 6) = P2(2, i);
-    A(i, 7) = P1(1, i);
-    A(i, 8) = P1(2, i);
-    A(i, 9) = 1;    
+%% Fill the A matrix line by line
+A = zeros(N,9);
+for ii = 1 : N
+   temp1 = P2(1,ii) .* P1(:,ii)';
+   temp2 = P2(2,ii) .* P1(:,ii)';
+   temp3 = P2(3,ii) .* P1(:,ii)';
+    
+   A(ii, :) = [temp1 temp2 temp3]; 
 end
 
-%Compute the SVD decomposition of A 
-[U, D, V]=svd(A);
+%% Select the solution
+%Decompose the A matrix using SVD
+[U, D, V] = svd( A );
+%Compute the solution of the homogenous system
+f = V(:,9);
+%Reshape f in a 3x3 matrix
+F = reshape(f, [3,3]);
+F = F';
 
-%Select as solution the last column of V
-[vRow, vCol] = size(V);
-f = V(:, vCol);
-
-%Reshape column vector f so to obtain a matrix F 
-F = reshape(f, [3, 3])';
-
-%Use again svd to decompose the matrix
-[U, D, V] = svd(F);
-
-%Set D(3,3)=0
-D(3, 3) = 0;
-
-%Recompute the final F
+%% Correct F
+%Decompose the F matrix using SVD
+[U, D, V] = svd( F );
+D(3,3) = 0;
 F = U * D * V';
 
 end

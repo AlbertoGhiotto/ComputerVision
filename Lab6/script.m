@@ -81,17 +81,16 @@ Perr2 = [floor(maxCol .* rand([1, n]) + 1); floor(maxRow .* rand([1, n]) + 1); o
 Perr1 = [P1 Perr1];
 Perr2 = [P2 Perr2];
 
-%Compute the fundamental matrix
+%Compute the fundamental matrix 
 F3 = EightPointsAlgorithmN(Perr1,Perr2);
 
 %Check the epipolar constraint
 disp('EPIPOLAR CONSTRAINT CHECKING WITH INVENTED POINTS:');
-
 [answer3, maxerror3] = checkEpConstraint(Perr1, Perr2, F3);
 if (answer3 == 0)
-    disp('The epipolar constraint (without ransac) is NOT respected');
+    disp('The epipolar constraint (with norm, no Ransac) is NOT respected');
 else
-    disp('The epipolar constraint (without ransac) is respected'); 
+    disp('The epipolar constraint (with norm, no Ransac) is respected'); 
 end
 
 %Visualize the correspondences along with the epipolar lines
@@ -110,9 +109,9 @@ th = 10;
 %Check the epipolar constraint
 [answer4, maxerror4] = checkEpConstraint(P1, P2, bestF);
 if (answer4 == 0)
-    disp('The epipolar constrain (with norm) is NOT respected');
+    disp('The epipolar constrain (with norm + Ransac) is NOT respected');
 else
-    disp('The epipolar constrain (with norm) is respected'); 
+    disp('The epipolar constrain (with norm + Ransac) is respected'); 
 end
 
 %Visualize the correspondences along with the epipolar lines

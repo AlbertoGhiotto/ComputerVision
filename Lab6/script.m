@@ -40,9 +40,9 @@ else
 end
 [answer2, maxerror2] = checkEpConstraint(P1, P2, F2);
 if (answer2 == 0)
-    disp('The epipolar constrain (with norm) is NOT respected');
+    disp('The epipolar constraint (with norm) is NOT respected');
 else
-    disp('The epipolar constrain (with norm) is respected'); 
+    disp('The epipolar constraint (with norm) is respected'); 
 end
 
 %Visualize the correspondences along with the epipolar lines
@@ -89,9 +89,9 @@ disp('EPIPOLAR CONSTRAINT CHECKING WITH INVENTED POINTS:');
 
 [answer3, maxerror3] = checkEpConstraint(Perr1, Perr2, F3);
 if (answer3 == 0)
-    disp('The epipolar constrain (without norm) is NOT respected');
+    disp('The epipolar constraint (without ransac) is NOT respected');
 else
-    disp('The epipolar constrain (without norm) is respected'); 
+    disp('The epipolar constraint (without ransac) is respected'); 
 end
 
 %Visualize the correspondences along with the epipolar lines
@@ -117,3 +117,18 @@ end
 
 %Visualize the correspondences along with the epipolar lines
 visualizeEpipolarLines(I1, I2, bestF, P1i, P2i);
+
+%% MATLAB function estimateFundamentalMatrix
+
+fRANSAC = estimateFundamentalMatrix(Perr1(1:2,:)',...
+    Perr2(1:2,:)','Method','RANSAC',...
+    'NumTrials',2000,'DistanceThreshold', 0.1);
+
+visualizeEpipolarLines(I1, I2, fRANSAC, P1i, P2i);
+
+[answer5, maxerror5] = checkEpConstraint(P1, P2, bestF);
+if (answer5 == 0)
+    disp('The epipolar constrain (with norm) is NOT respected');
+else
+    disp('The epipolar constrain (with norm) is respected'); 
+end

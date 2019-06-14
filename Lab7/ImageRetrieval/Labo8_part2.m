@@ -139,3 +139,28 @@ if num_ranked_images > size(idx, 1)
 end
 
 showranking(num_ranked_images, imlist1, length(imlist1), idx, distances);
+
+%% Using findMatches to compare the query image to all the gallery
+numMatches = zeros(nimg, 1);
+
+for i = 1 : nimg
+       
+    imgpath = imlist{i};
+        
+    % Loading image
+    img2 = imread(imgpath);
+    img2 = single(rgb2gray(img2));
+    list_sift = findMatches(I, img2, 'SIFT');
+    
+    numMatches(i) = size(list_sift, 1);
+    
+end
+
+[numMatches, idx] = sort(numMatches, 'descend'); % sort ascending
+numMatches = numMatches(1:num_ranked_images, :);
+idx = idx(1:num_ranked_images, :);
+
+if num_ranked_images > size(idx, 1)
+    num_ranked_images = size(idx, 1);
+end
+showranking(num_ranked_images, imlist1, length(imlist1), idx, numMatches);

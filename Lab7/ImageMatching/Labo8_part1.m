@@ -2,7 +2,7 @@ clc, clear all, close all;
 
 % load the images pair
 img1 = rgb2gray(imread('images/Monster.jpg'));
-img2 = rgb2gray(imread('images/Ex01_01.jpg'));
+img2 = rgb2gray(imread('images/Ex01_02.jpg'));
 
 % if the images are too large you might want to resize them to a smaller
 % size

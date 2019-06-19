@@ -141,8 +141,10 @@ end
 showranking(num_ranked_images, imlist1, length(imlist1), idx, distances);
 
 %% Using findMatches to compare the query image to all the gallery
+%Variable to save the numer of matches for each image
 numMatches = zeros(nimg, 1);
 
+%Apply findMatches to all the image wrt I
 for i = 1 : nimg
        
     imgpath = imlist{i};

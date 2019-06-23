@@ -26,7 +26,7 @@ end
 figure; imshowpair(I1,I2,'ColorChannels','red-cyan');
 title('Images');
 
-W = 8;
+W = 12;
 
 [disparityMap, consistency] = my_disparity_final(I1, I2, W, d(1), d(2)); 
 

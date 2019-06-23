@@ -10,18 +10,22 @@ Drl = my_disparity(I2,I1, W, -dmax, -dmin);
 
 % Consistency between disparity maps from left to right and from right to
 % left
-consistency = zeros(size(Dlr));
+consistency = ones(size(Dlr));
 
-for i = ( 1 + midW ) : ( size(I1, 1) - midW )
-    for j = (1 + midW) : ( size(I1, 2) - midW ) 
-        if( (j+dmin-midW) > 1 && (j+dmax+midW) < size(I2,2))
-            if(Dlr(i,j) == -Drl(i,j+Dlr(i,j)))
-                consistency(i,j) = 1;
+% for i = ( 1 + midW ) : ( size(I1, 1) - midW )
+%     for j = (1 + midW) : ( size(I1, 2) - midW ) 
+for i = 1 : size(I1, 1)
+    for j = 1 : size(I1, 2) 
+        %Is important to check only the pixel which have been filled by the
+        %function my_disparity
+        if( j+Dlr(i,j) >= dmax+midW+1 && j+Dlr(i,j) <= size(I2,2)+dmin-midW)
+            if(Dlr(i,j) ~= -Drl(i,j+Dlr(i,j)))
+                consistency(i,j) = 0;
             end
         end
     end
 end
 
-D = Dlr;
+D = Drl;
 
 end

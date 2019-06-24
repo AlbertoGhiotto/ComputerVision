@@ -1,15 +1,15 @@
 % UNCOMMENT THE APPROPRIATE SLICE OF CODE TO TEST NEW EXAMPLES
 
-% I1=imread('stereo_pairs/rds_L.jpg'); 
-% I2=imread('stereo_pairs/rds_R.jpg'); 
+% I1=imread('../stereo_pairs/rds_L.jpg'); 
+% I2=imread('../stereo_pairs/rds_R.jpg'); 
 % d=[-6 10];
 
-% I1=imread('stereo_pairs/parkmeter.l.jpg'); 
-% I2=imread('stereo_pairs/parkmeter.r.jpg'); 
+% I1=imread('../stereo_pairs/parkmeter.l.jpg'); 
+% I2=imread('../stereo_pairs/parkmeter.r.jpg'); 
 % d=[2 18];
 
-% I1=imread('stereo_pairs/corridor_l_original.jpg'); 
-% I2=imread('stereo_pairs/corridor_r_original.jpg'); 
+% I1=imread('../stereo_pairs/corridor_l_original.jpg'); 
+% I2=imread('../stereo_pairs/corridor_r_original.jpg'); 
 % d=[2 18];
 
  I1=imread('../stereo_pairs/Dino_L.png'); 

@@ -4,9 +4,8 @@ midW = round(W/2);
 
 % Compute left-right disparity
 Dlr = my_disparity(I1,I2, W, dmin, dmax);
-Drl = my_disparity(I2,I1, W, -dmax, -dmin);
 % Compute right-left disparity
-% Drl = my_disparity_rl(I1,I2, W, dmin, dmax);
+Drl = my_disparity(I2,I1, W, -dmax, -dmin);
 
 % Consistency between disparity maps from left to right and from right to
 % left
@@ -26,6 +25,6 @@ for i = 1 : size(I1, 1)
     end
 end
 
-D = Drl;
+D = Dlr;
 
 end
